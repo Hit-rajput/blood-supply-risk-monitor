@@ -1,8 +1,0 @@
-{
-  "download_timestamp": "2026-01-25T18:57:40.575524",
-  "source_url": "https://open.canada.ca/data/dataset/1eb9eba7-71d1-4b30-9fb1-30cbdab7e63a/resource/1e2a6aa0-c35f-4736-984a-71f2eac1c1dc/download/2019_dataset_en.csv",
-  "resource_name": "National Collision Database (2019)",
-  "format": "CSV",
-  "last_modified": "2022-11-02T17:04:28.200282",
-  "file_path": "data\\bronze\\ncdb\\ncdb_20260125_185740.csv"
-}
