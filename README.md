@@ -154,7 +154,7 @@ The data reveals a critical misalignment between typical blood donation patterns
 
 ---
 
-**📄 Full Analysis**: See [NCDB_FINDINGS.md](docs/NCDB_FINDINGS.md) for complete findings with visualizations
+**📄 Full Analysis**: See [NCDB_FINDINGS.md](notebooks/NCDB_findings.md) for complete findings with visualizations
 
 </details>
 
