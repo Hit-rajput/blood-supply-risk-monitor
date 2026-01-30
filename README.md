@@ -1,9 +1,9 @@
 # Supply Risk Monitor: Predictive Blood Demand & Supply Forecasting  
 ### *Trauma-driven demand forecasting and supply risk early warning for Canada*
 
-![Status](https://img.shields.io/badge/Current_Phase-Data gathering-blue?style=for-the-badge&logo=python)
+![Status](https://img.shields.io/badge/Current_Phase-Data_Gathering_&_Algorithm_Selection-orange?style=for-the-badge&logo=python)
 
-Blood products are highly perishable (RBC ≈ 42 days; platelets ≈ 5–7 days), which makes stockpiling difficult[web:2][web:4]. Meanwhile, trauma demand can spike seasonally (long weekends, travel peaks, severe weather), and donor turnout is sensitive to external conditions. This project builds a forward-looking "Control Tower" that forecasts trauma-driven demand and highlights periods when donor supply capacity is likely to fall short.
+Blood products are highly perishable (RBC ≈ 42 days; platelets ≈ 5–7 days), which makes stockpiling difficult. Meanwhile, trauma demand can spike seasonally (long weekends, travel peaks, severe weather), and donor turnout is sensitive to external conditions. This project builds a forward-looking "Control Tower" that forecasts trauma-driven demand and highlights periods when donor supply capacity is likely to fall short.
 
 ---
 
@@ -21,6 +21,7 @@ Operational teams often detect risk after shortages emerge. The Supply Risk Moni
 
 - Build a robust trauma-driven **Demand Index** using NCDB (injury/fatal collisions)
 - Integrate exogenous drivers (weather severity, holidays, travel periods)
+- Evaluate forecasting algorithms (Prophet, XGBoost, SARIMA, LSTM) for optimal performance
 - Forecast short-horizon risk to support proactive collection planning
 - Operationalize a single decision metric: the **Risk Coverage Ratio**
 
@@ -48,9 +49,11 @@ The system follows an **ELT** approach:
 1. **Extract**: automated fetching of public datasets (NCDB now; weather next)
 2. **Load**: Bronze layer (raw files preserved)
 3. **Transform**: Silver layer (cleaned, merged, analytics-ready outputs); Gold layer planned (star schema for BI)
-4. **Forecasting engine** (planned hybrid):
-   - **Prophet** for baseline seasonality and holiday effects
-   - **XGBoost** for exogenous features (weather severity, trauma proxies, event indicators)
+4. **Algorithm evaluation** (current phase):
+   - **Prophet**: baseline seasonality and holiday effects
+   - **XGBoost**: exogenous features (weather severity, trauma proxies, event indicators)
+   - **SARIMA**: classical time series with seasonal components
+   - **LSTM/GRU**: deep learning approaches for sequential patterns
 5. **Operationalization**: Power BI "Control Tower" monitoring Risk Coverage Ratio and risk periods
 
 ---
@@ -74,12 +77,13 @@ notebooks/                # EDA + processing (Polars; large-scale handling)
 
 ## 📊 Current Progress: NCDB Trauma Proxy Pipeline
 
-**Phase 1** focuses on NCDB to build the trauma proxy:
+**Phase 1** focuses on data gathering and algorithm evaluation:
 
 - **Scale**: > 7.7 million collision events processed
 - **Performance**: Polars LazyFrames used to merge and filter 20+ years efficiently
 - **Filtering**: injury + fatal collisions prioritized for higher-fidelity demand signal
-- **EDA**: seasonality, severity mapping, and demographic distributions
+- **EDA**: seasonality patterns, severity mapping, and demographic distributions
+- **Algorithm research**: evaluating Prophet, XGBoost, SARIMA, and LSTM for trauma demand forecasting
 
 ---
 
@@ -111,7 +115,8 @@ pip install polars pandas matplotlib seaborn
 - [x] Ingest National Collision Database (NCDB)
 - [x] Initial EDA and cleaning
 - [ ] Integrate weather data (Environment and Climate Change Canada)
-- [ ] Build Prophet + XGBoost forecasting model
+- [ ] Evaluate and select optimal forecasting algorithm (Prophet vs XGBoost vs SARIMA vs LSTM)
+- [ ] Build production forecasting pipeline
 - [ ] Create Power BI "Control Tower" dashboard (Risk Coverage Ratio + thresholds + scenarios)
 
 ---
@@ -121,6 +126,7 @@ pip install polars pandas matplotlib seaborn
 - **[National Collision Database (NCDB)](https://open.canada.ca/)** (Open Canada)
 - **Weather** (planned): Environment and Climate Change Canada
 - **Holidays/calendar effects** (planned): federal/provincial holiday calendar features
+- **Donor/donation signals** (planned): internal Canadian Blood Services data (subject to governance)
 
 ---
 
