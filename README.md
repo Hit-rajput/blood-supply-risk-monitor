@@ -85,6 +85,80 @@ notebooks/                # EDA + processing (Polars; large-scale handling)
 - **EDA**: seasonality patterns, severity mapping, and demographic distributions
 - **Algorithm research**: evaluating Prophet, XGBoost, SARIMA, and LSTM for trauma demand forecasting
 
+<details>
+<summary><b>📋 View Detailed NCDB Exploratory Analysis Findings</b></summary>
+
+<br>
+
+### Executive Summary
+
+The data reveals a critical misalignment between typical blood donation patterns and trauma demand:
+
+- **The Problem**: Trauma demand peaks in Summer and Late Autumn—precisely when donor attendance typically drops ("Summer Slump")
+- **The Risk Zone**: The highest volume of potential trauma patients occurs on Friday afternoons (3 PM – 6 PM), creating a weekly pressure point for hospital inventory entering the weekend
+- **The Patient Profile**: The primary demographic driver is Males aged 18–30. This group is statistically more likely to be involved in severe crashes and, due to average body size, may require higher volumes of blood products per transfusion than other demographics
+
+---
+
+### Temporal Dynamics: When is the System Stressed?
+
+#### Long-Term Trend: The "COVID Shock"
+
+**Observation**: There is a steady, structural decline in collision injuries from 1999–2019, likely due to improved vehicle safety standards.
+
+**Critical Anomaly**: The massive drop in 2020 represents the COVID-19 lockdowns and reduced traffic volume.
+
+**Forecasting Implication**: Predictive models cannot treat 2020–2021 as "normal." This period must either be treated as an anomaly in time series forecasting or adjusted using control features like "vehicle kilometers traveled."
+
+#### Seasonality: The "Summer Peak"
+
+**Observation**: Injuries rise starting in May, peak in July–August, and remain elevated through October.
+
+**Blood Supply Context**: Canadian Blood Services often faces low donor turnout in summer due to vacations. The simultaneous peak in trauma demand creates a perfect storm for supply risk.
+
+**Recommended Action**: Implement targeted donor campaigns in April–May to build inventory buffer before the summer surge.
+
+#### Weekly Risk Pattern: Friday Afternoon Pressure
+
+**Observation**: Fridays are the most dangerous day of the week, specifically between 15:00 and 18:00.
+
+**Supply Chain Impact**: Hospitals need to be fully stocked by Friday morning. If a mass casualty event occurs on Friday afternoon, the supply chain has minimal buffer time before the weekend when staffing and logistics are reduced.
+
+---
+
+### Demographic Drivers: Estimating Volume Requirements
+
+#### The "Young Male" Factor
+
+**Observation**: A massive spike in victims aged 20–30, with Males significantly outnumbering Females.
+
+**Modeling Insight**: "Trauma Volume" is not just *Count of People*—it is *Count × Body Surface Area*. A 25-year-old male typically has a larger blood volume (approximately 5-6 liters) than a child or elderly patient.
+
+**Forecasting Enhancement**: Weight collisions involving this demographic as "High Demand Potential" in predictive models.
+
+---
+
+### Strategic Recommendations
+
+#### For Blood Inventory Management
+
+1. **Pre-Summer Stockpiling**: Launch intensive donor recruitment campaigns in April–May
+2. **Friday Load Balancing**: Increase Thursday night/Friday morning deliveries to trauma centers by 15-20%
+3. **Demographic-Weighted Forecasting**: Implement collision forecasts that account for victim demographics, not just incident counts
+
+#### For Predictive Modeling
+
+1. **COVID Period Handling**: Use external regressors or dummy variables for 2020–2021
+2. **Seasonal Decomposition**: Apply multiplicative seasonal models given the consistent summer peak pattern
+3. **Age-Gender Weighting**: Incorporate demographic multipliers based on average blood volume requirements
+
+---
+
+**📄 Full Analysis**: See [NCDB_FINDINGS.md](docs/NCDB_FINDINGS.md) for complete findings with visualizations
+
+</details>
+
+---
 ---
 
 ## 🚀 Getting Started
