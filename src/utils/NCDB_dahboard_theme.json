@@ -1,0 +1,80 @@
+{
+  "name": "Blood Supply Risk Monitor - Dark Fixed",
+  "dataColors": [
+    "#FF4D4D", 
+    "#3399FF", 
+    "#FFCA28", 
+    "#00BFA5", 
+    "#E0E0E0", 
+    "#7F8C8D", 
+    "#D62728", 
+    "#1F77B4"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#E0E0E0",
+  "tableAccent": "#3399FF",
+  "visualStyles": {
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#121212" } },
+            "transparency": 0
+          }
+        ],
+        "outspace": [
+          {
+            "color": { "solid": { "color": "#121212" } },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "*": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#1E1E1E" } },
+            "transparency": 0
+          }
+        ],
+        "visualTooltip": [
+          {
+            "titleFontColor": { "solid": { "color": "#FFFFFF" } },
+            "valueFontColor": { "solid": { "color": "#E0E0E0" } },
+            "background": { "solid": { "color": "#2C2C2C" } }
+          }
+        ],
+        "title": [
+          {
+            "color": { "solid": { "color": "#FFFFFF" } }
+          }
+        ],
+        "categoryAxis": [
+          {
+            "show": true,
+            "labelColor": { "solid": { "color": "#E0E0E0" } },
+            "titleColor": { "solid": { "color": "#A0A0A0" } },
+            "gridlineStyle": "dotted",
+            "gridlineColor": { "solid": { "color": "#404040" } }
+          }
+        ],
+        "valueAxis": [
+          {
+            "show": true,
+            "labelColor": { "solid": { "color": "#E0E0E0" } },
+            "titleColor": { "solid": { "color": "#A0A0A0" } },
+            "gridlineStyle": "dotted",
+            "gridlineColor": { "solid": { "color": "#404040" } }
+          }
+        ],
+        "legend": [
+            {
+                "titleColor": { "solid": { "color": "#A0A0A0" } },
+                "labelColor": { "solid": { "color": "#E0E0E0" } }
+            }
+        ]
+      }
+    }
+  }
+}
