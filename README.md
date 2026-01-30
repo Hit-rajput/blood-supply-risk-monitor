@@ -1,125 +1,145 @@
-Supply Risk Monitor: Predictive Blood Demand & Supply Forecasting
-The Supply Risk Monitor is a predictive analytics platform designed to forecast trauma-driven blood demand and identify periods where donor supply capacity in Canada is likely to fall short.
+# Supply Risk Monitor: Predictive Blood Demand & Supply Forecasting  
+### *Trauma-driven demand forecasting and supply risk early warning for Canada*
 
-This project aims to shift from descriptive reporting (what happened) to prescriptive risk modeling (what is likely to happen) by combining collision data, donor/donation signals, and external drivers like weather and holidays to provide a “Control Tower” for early warning and scenario planning.
+![Status](https://img.shields.io/badge/Current_Phase-Model_Development_&_Optimization-blue?style=for-the-badge&logo=python)
 
-Problem Statement
-Blood products are highly perishable, which makes stockpiling difficult:
+Blood products are highly perishable (RBC ≈ 42 days; platelets ≈ 5–7 days), which makes stockpiling difficult[web:2][web:4]. Meanwhile, trauma demand can spike seasonally (long weekends, travel peaks, severe weather), and donor turnout is sensitive to external conditions. This project builds a forward-looking "Control Tower" that forecasts trauma-driven demand and highlights periods when donor supply capacity is likely to fall short.
 
-Red Blood Cells: 
-≈
-42
-≈42 days
+---
 
-Platelets: 
-≈
-5
-≈5–
-7
-7 days
+## ⚠️ Problem Statement
 
-At the same time:
+Operational teams often detect risk after shortages emerge. The Supply Risk Monitor aims to provide earlier signals by combining:
 
-Volatile demand: trauma events spike seasonally (travel seasons, long weekends, extreme weather)
+- Trauma proxies from collisions (NCDB)
+- External demand/supply drivers (weather, holidays, event signals)
+- Forecasting models built for both seasonality and exogenous effects
 
-Supply constraints: donor turnout is sensitive to external factors
+---
 
-The gap: teams often react to shortages after they emerge
+## 🎯 Objectives
 
-This project introduces a forward-looking metric that supports proactive collection campaigns and inventory redistribution.
+- Build a robust trauma-driven **Demand Index** using NCDB (injury/fatal collisions)
+- Integrate exogenous drivers (weather severity, holidays, travel periods)
+- Forecast short-horizon risk to support proactive collection planning
+- Operationalize a single decision metric: the **Risk Coverage Ratio**
 
-Core Metric: Risk Coverage Ratio
-The dashboard centers on the Risk Coverage Ratio:
+---
 
-Risk Coverage Ratio
-=
-Supply Proxy
-Demand Index
-Risk Coverage Ratio= 
-Demand Index
-Supply Proxy
- 
-Supply Proxy: leading indicators of donor capacity (planned integration)
+## 📉 Core Metric: Risk Coverage Ratio
 
-Demand Index: trauma-driven demand proxy (initially derived from NCDB collisions)
+The dashboard centers on:
 
-The dashboard will classify future periods into Stable, Warning, and Critical thresholds (to be finalized during dashboard design and calibration).
+```
+Risk Coverage Ratio = Supply Proxy ÷ Demand Index
+```
 
-Technical Solution (ELT Architecture)
-This system follows an ELT (Extract, Load, Transform) approach:
+- **Supply Proxy**: leading indicators of donor capacity (planned integration)
+- **Demand Index**: trauma-driven proxy from collisions (current focus)
 
-Ingestion (Bronze): automated fetching of public datasets (NCDB now; weather next)
+Threshold bands will classify future periods as **Stable**, **Warning**, or **Critical** during dashboard calibration.
 
-Transformation (Silver/Gold): cleaning, standardization, and modeling into BI-ready structures (star schema planned)
+---
 
-Forecasting engine (planned hybrid approach):
+## 🛠️ Technical Solution (ELT + Forecasting)
 
-Prophet: baseline seasonality + holiday effects
+The system follows an **ELT** approach:
 
-XGBoost: exogenous drivers (weather severity, trauma proxies, event indicators)
+1. **Extract**: automated fetching of public datasets (NCDB now; weather next)
+2. **Load**: Bronze layer (raw files preserved)
+3. **Transform**: Silver layer (cleaned, merged, analytics-ready outputs); Gold layer planned (star schema for BI)
+4. **Forecasting engine** (planned hybrid):
+   - **Prophet** for baseline seasonality and holiday effects
+   - **XGBoost** for exogenous features (weather severity, trauma proxies, event indicators)
+5. **Operationalization**: Power BI "Control Tower" monitoring Risk Coverage Ratio and risk periods
 
-Operationalization: Power BI “Control Tower” dashboard to monitor Risk Coverage Ratio and support scenario planning
+---
 
-Repository Structure
-text
+## 📂 Repository Structure
+
+```
 data/
   bronze/
-    ncdb/                 # Raw National Collision Database CSVs (1999–2021)
+    ncdb/                 # Raw NCDB CSVs (1999–2021)
   silver/
-    ncdb/                 # Cleaned/merged dataset outputs
+    ncdb/                 # Cleaned/merged outputs (e.g., ncdb_merged_filtered.csv)
 
 src/
-  ingest/                 # Notebooks/scripts for automated data retrieval (e.g., CKAN)
+  ingest/                 # Ingestion notebooks/scripts (Open Canada CKAN)
 
 notebooks/                # EDA + processing (Polars; large-scale handling)
-Current Progress: NCDB Pipeline (Trauma Proxy)
-Phase 1 focuses on building a high-fidelity trauma proxy using the National Collision Database:
+```
 
-Dataset size: 
->
-7.7
->7.7 million collision events processed
+---
 
-Optimization: Polars LazyFrames to merge and clean 20+ years efficiently
+## 📊 Current Progress: NCDB Trauma Proxy Pipeline
 
-Filtering: injury and fatal collisions prioritized for demand-signal quality
+**Phase 1** focuses on NCDB to build the trauma proxy:
 
-EDA: seasonality patterns, severity mapping, and victim demographic distributions
+- **Scale**: > 7.7 million collision events processed
+- **Performance**: Polars LazyFrames used to merge and filter 20+ years efficiently
+- **Filtering**: injury + fatal collisions prioritized for higher-fidelity demand signal
+- **EDA**: seasonality, severity mapping, and demographic distributions
 
-Getting Started
-Prerequisites
-Python 3.10+
+---
 
-Polars: https://pola.rs/
+## 🚀 Getting Started
 
-Jupyter Notebook/Lab
+### Prerequisites
 
-Install
-bash
+- Python 3.10+
+- Jupyter Notebook/Lab
+- [Polars](https://pola.rs/)
+
+### Installation
+
+```bash
 git clone https://github.com/hit-rajput/blood-supply-risk-monitor.git
 cd blood-supply-risk-monitor
 pip install polars pandas matplotlib seaborn
-Run (current workflow)
-Run ingestion notebooks/scripts in src/ingest/ to download raw files into data/bronze/
+```
 
-Run processing/EDA notebooks in notebooks/ to generate cleaned outputs in data/silver/
+### Run (current workflow)
 
-Roadmap
- Ingest National Collision Database (NCDB)
+1. Run ingestion in `src/ingest/` to download raw data into `data/bronze/`
+2. Run notebooks in `notebooks/` to generate cleaned outputs into `data/silver/`
 
- Initial EDA and data cleaning
+---
 
- Integrate external weather data (Environment and Climate Change Canada)
+## 🗺️ Roadmap
 
- Build Prophet + XGBoost forecasting model
+- [x] Ingest National Collision Database (NCDB)
+- [x] Initial EDA and cleaning
+- [ ] Integrate weather data (Environment and Climate Change Canada)
+- [ ] Build Prophet + XGBoost forecasting model
+- [ ] Create Power BI "Control Tower" dashboard (Risk Coverage Ratio + thresholds + scenarios)
 
- Develop Power BI “Control Tower” dashboard (Risk Coverage Ratio + thresholds)
+---
 
-Data & Governance Notes
-Public datasets are used for ingestion (NCDB and planned external drivers)
+## 📚 Data Sources (Current + Planned)
 
-Any donor/donation data integration must follow privacy, security, and governance requirements (aggregation, de-identification, access controls)
+- **[National Collision Database (NCDB)](https://open.canada.ca/)** (Open Canada)
+- **Weather** (planned): Environment and Climate Change Canada
+- **Holidays/calendar effects** (planned): federal/provincial holiday calendar features
 
-Author
-Hit Rajput
-Focus: Data Science, Machine Learning, and Business Intelligence in Healthcare
+---
+
+## 🔐 Data & Governance Notes
+
+- This repo uses public datasets for ingestion (NCDB and planned external drivers)
+- Any donor/donation data integration must follow privacy and governance requirements (aggregation, de-identification, access controls)
+
+---
+
+## 👤 Author
+
+**Hit Rajput**  
+*Focus: Data Science, Machine Learning, and Business Intelligence in Healthcare*
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
