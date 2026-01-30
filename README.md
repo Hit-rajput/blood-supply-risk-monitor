@@ -1,7 +1,7 @@
 # Supply Risk Monitor: Predictive Blood Demand & Supply Forecasting  
 ### *Trauma-driven demand forecasting and supply risk early warning for Canada*
 
-![Status](https://img.shields.io/badge/Current_Phase-Model_Development_&_Optimization-blue?style=for-the-badge&logo=python)
+![Status](https://img.shields.io/badge/Current_Phase-Data gathering-blue?style=for-the-badge&logo=python)
 
 Blood products are highly perishable (RBC ≈ 42 days; platelets ≈ 5–7 days), which makes stockpiling difficult[web:2][web:4]. Meanwhile, trauma demand can spike seasonally (long weekends, travel peaks, severe weather), and donor turnout is sensitive to external conditions. This project builds a forward-looking "Control Tower" that forecasts trauma-driven demand and highlights periods when donor supply capacity is likely to fall short.
 
