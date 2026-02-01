@@ -21,7 +21,7 @@ The data reveals a distinct bifurcation between "high volume" congestion acciden
 
 #### Long-Term Trend: The Pandemic Structural Break
 
-![Annual Collision Trend](images/toronto_annual_trend.png)
+![Annual Collision Trend](images/Annual Collision Trend.png)
 
 **Observation**: A steady climb in collisions peaked in 2019 (>80,000), followed by a massive -50% structural break in 2020 due to COVID-19.
 
@@ -31,7 +31,7 @@ The data reveals a distinct bifurcation between "high volume" congestion acciden
 
 #### Weekly Risk Pattern: The Friday Surge
 
-![Weekly Collision Pattern](images/toronto_weekly_pattern.png)
+![Weekly Collision Pattern](images/Annual Collision Trend.png)
 
 **Observation**: Weekdays exhibit a classic "bimodal" pattern (Morning Rush 8-9 AM, Evening Rush 3-6 PM).
 
@@ -43,7 +43,7 @@ The data reveals a distinct bifurcation between "high volume" congestion acciden
 
 #### Volume vs. Danger: The "Lethal Hours"
 
-![Hourly Volume vs Injury Rate](images/toronto_hourly_dual_axis.png)
+![Hourly Volume vs Injury Rate](images/Annual Collision Trend.png)
 
 **Observation**: This dual-axis chart reveals a critical inverse relationship:
 - **Grey Bars (Volume)**: Peak at 5:00 PM (Gridlock)
@@ -72,7 +72,7 @@ The data reveals a distinct bifurcation between "high volume" congestion acciden
 
 #### Severity Distribution
 
-![Collision Severity Breakdown](images/toronto_severity_pie.png)
+![Collision Severity Breakdown](images/Collision Severity Breakdown.png)
 
 **Observation**:
 - Property Damage Only (PDO): **84.0%**
@@ -87,7 +87,7 @@ The data reveals a distinct bifurcation between "high volume" congestion acciden
 
 #### Density & The "U" Shape
 
-![Collision Density Hexbin Map](images/toronto_hexbin_density.png)
+![Collision Density Hexbin Map](images/Collision Density Hexbin Map.png)
 
 **Observation**: The hexbin density map reveals Toronto's infrastructure skeleton.
 
