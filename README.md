@@ -1,7 +1,7 @@
 # Supply Risk Monitor: Predictive Blood Demand & Supply Forecasting  
 ### *Trauma-driven demand forecasting and supply risk early warning for Canada*
 
-![Status](https://img.shields.io/badge/Current_Phase-Prototype_&_Ingestion-orange?style=for-the-badge&logo=python)
+![Status](https://img.shields.io/badge/Current_Phase-Pipeline_Implementation-blue?style=for-the-badge&logo=python)
 
 Blood products are highly perishable, making effective stockpile management critical. This project aims to build a "Control Tower" to forecast trauma-driven demand and identify potential supply risks.
 
@@ -15,17 +15,27 @@ Operational teams need earlier signals for blood shortage risks. The Supply Risk
 
 ## 🚀 Current Status
 
-The project is currently in the **Prototyping & Ingestion** phase. The codebase is primarily **Notebook-driven**.
+The project has moved into the **Pipeline Implementation** phase.
 
 ### ✅ Implemented Features
-*   **Data Ingestion**: Automated download and standardization of National Collision Database (NCDB) data (1999-2021) from the Open Canada API.
-*   **Forecasting Model**: A Baseline **Facebook Prophet** model has been trained and tested to capture trends and seasonality in collision data.
-*   **Data Analysis**: Exploratory analysis notebooks for Toronto and NCDB datasets.
+*   **Data Ingestion**: Automated download and standardization of National Collision Database (NCDB) data from the Open Canada API.
+*   **Forecasting Model**: **Finalized Baseline Facebook Prophet model**. The model has been trained and validated to capture trends and seasonality in collision data.
+    
+    ![Prediction Results](docs/Prediction_result_test/pred_res.png)
 
-### �  Work in Progress / Roadmap
-*   **Hybrid Engine**: Integration of XGBoost for residual error correction (currently planned/claimed but not yet implemented in code).
-*   **Genetic Algorithm**: Hyperparameter optimization for the hybrid model.
-*   **Productionization**: Refactoring notebook logic (`src/models`, `src/transform`) into executable Python scripts (`.py`).
+*   **Data Analysis**: Exploratory analysis notebooks for Toronto and NCDB datasets.
+    
+    ![Annual Trend](docs/images/Annual%20Collision%20Trend.png)
+    *Annual Collision Trend showing historical patterns.*
+    
+    ![Weekly Pattern](docs/images/Weekly%20Collision%20Pattern.png)
+    *Weekly aggregation revealing clear seasonality.*
+
+### 🚧  Work in Progress
+*   **Automated Retraining Pipeline**: Implementing a quarterly workflow that:
+    1.  Fetches fresh Toronto collision data every 3 months.
+    2.  Retrains the Prophet model with the updated dataset.
+    3.  Generates demand forecasts for the next 3-month window.
 
 ---
 
@@ -67,6 +77,5 @@ Currently, the workflow is executed via Jupyter Notebooks:
 
 ## 🎯 Objectives (Future)
 
-*   Build a robust trauma-driven **Demand Index**.
-*   Forecast short-horizon risk to support proactive collection planning.
-*   Operationalize a decision metric: the **Risk Coverage Ratio**.
+*   **Model Optimization**: Explore efficiency improvements and alternative algorithms to enhance the current Prophet model.
+*   **Risk Metrics**: Operationalize the **Risk Coverage Ratio** for decision support.
