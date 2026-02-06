@@ -1,18 +1,36 @@
 {
-  "name": "Blood Supply Risk Monitor - Dark Fixed",
+  "name": "Blood Supply - Stealth Dark",
   "dataColors": [
-    "#FF4D4D", 
-    "#3399FF", 
-    "#FFCA28", 
-    "#00BFA5", 
-    "#E0E0E0", 
-    "#7F8C8D", 
-    "#D62728", 
+    "#FF4D4D",
+    "#3399FF",
+    "#FFCA28",
+    "#00BFA5",
+    "#E0E0E0",
+    "#7F8C8D",
+    "#D62728",
     "#1F77B4"
   ],
   "background": "#FFFFFF",
-  "foreground": "#E0E0E0",
+  "foreground": "#605E5C",
   "tableAccent": "#3399FF",
+  "textClasses": {
+    "callout": {
+      "color": "#605E5C",
+      "fontFace": "Segoe UI"
+    },
+    "title": {
+      "color": "#605E5C",
+      "fontFace": "Segoe UI Semibold"
+    },
+    "header": {
+      "color": "#605E5C",
+      "fontFace": "Segoe UI Semibold"
+    },
+    "label": {
+      "color": "#605E5C",
+      "fontFace": "Segoe UI"
+    }
+  },
   "visualStyles": {
     "page": {
       "*": {
@@ -40,39 +58,70 @@
         ],
         "visualTooltip": [
           {
-            "titleFontColor": { "solid": { "color": "#FFFFFF" } },
-            "valueFontColor": { "solid": { "color": "#E0E0E0" } },
+            "titleFontColor": { "solid": { "color": "#E0E0E0" } },
+            "valueFontColor": { "solid": { "color": "#FFFFFF" } },
             "background": { "solid": { "color": "#2C2C2C" } }
           }
         ],
         "title": [
           {
-            "color": { "solid": { "color": "#FFFFFF" } }
+            "show": true,
+            "fontColor": { "solid": { "color": "#605E5C" } },
+            "color": { "solid": { "color": "#605E5C" } }
           }
         ],
         "categoryAxis": [
           {
             "show": true,
-            "labelColor": { "solid": { "color": "#E0E0E0" } },
-            "titleColor": { "solid": { "color": "#A0A0A0" } },
+            "labelColor": { "solid": { "color": "#605E5C" } },
+            "titleColor": { "solid": { "color": "#605E5C" } },
             "gridlineStyle": "dotted",
-            "gridlineColor": { "solid": { "color": "#404040" } }
+            "gridlineColor": { "solid": { "color": "#2D2D2D" } }
           }
         ],
         "valueAxis": [
           {
             "show": true,
-            "labelColor": { "solid": { "color": "#E0E0E0" } },
-            "titleColor": { "solid": { "color": "#A0A0A0" } },
+            "labelColor": { "solid": { "color": "#605E5C" } },
+            "titleColor": { "solid": { "color": "#605E5C" } },
             "gridlineStyle": "dotted",
-            "gridlineColor": { "solid": { "color": "#404040" } }
+            "gridlineColor": { "solid": { "color": "#2D2D2D" } }
           }
         ],
         "legend": [
+          {
+            "titleColor": { "solid": { "color": "#605E5C" } },
+            "labelColor": { "solid": { "color": "#605E5C" } }
+          }
+        ]
+      }
+    },
+    "slicer": {
+      "*": {
+        "items": [
+          {
+            "fontColor": { "solid": { "color": "#605E5C" } },
+            "background": { "solid": { "color": "#1E1E1E" } }
+          }
+        ],
+        "header": [
             {
-                "titleColor": { "solid": { "color": "#A0A0A0" } },
-                "labelColor": { "solid": { "color": "#E0E0E0" } }
+                "fontColor": { "solid": { "color": "#605E5C" } }
             }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "color": { "solid": { "color": "#605E5C" } }
+          }
+        ],
+        "categoryLabels": [
+          {
+            "color": { "solid": { "color": "#505050" } }
+          }
         ]
       }
     }
