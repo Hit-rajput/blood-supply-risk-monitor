@@ -31,6 +31,12 @@ The project has moved into the **Pipeline Implementation** phase.
     ![Weekly Pattern](docs/images/Weekly%20Collision%20Pattern.png)
     *Weekly aggregation revealing clear seasonality.*
 
+    ![Hourly Volume vs Injury Rate](docs/images/toronto_hourly_dual_axis.png)
+    *Volume vs. Danger: High congestion (5 PM) vs. High lethality (3 AM).*
+
+    ![Collision Density Map](docs/images/toronto_hexbin_density.png)
+    *Collision Density Hexbin Map revealing structural risk zones.*
+
 ### 🚧  Work in Progress
 *   **Automated Retraining Pipeline**: Implementing a quarterly workflow that:
     1.  Fetches fresh Toronto collision data every 3 months.
