@@ -7,7 +7,7 @@ Blood products are highly perishable, making effective stockpile management crit
 
 ---
 
-## ⚠️ Problem Statement
+##  Problem Statement
 
 Operational teams need earlier signals for blood shortage risks. The Supply Risk Monitor leverages national collision data and external factors to predict demand spikes caused by trauma events.
 
@@ -17,7 +17,7 @@ Operational teams need earlier signals for blood shortage risks. The Supply Risk
 
 The project has moved into the **Pipeline Implementation** phase.
 
-### ✅ Implemented Features
+### Implemented Features
 *   **Data Ingestion**: Automated download and standardization of National Collision Database (NCDB) data from the Open Canada API.
 *   **Forecasting Model**: **Finalized Baseline Facebook Prophet model**. The model has been trained and validated to capture trends and seasonality in collision data.
     
@@ -37,7 +37,7 @@ The project has moved into the **Pipeline Implementation** phase.
     ![Collision Density Map](docs/images/toronto_hexbin_density.png)
     *Collision Density Hexbin Map revealing structural risk zones.*
 
-### 🚧  Work in Progress
+###   Work in Progress
 *   **Automated Retraining Pipeline**: Implementing a quarterly workflow that:
     1.  Fetches fresh Toronto collision data every 3 months.
     2.  Retrains the Prophet model with the updated dataset.
@@ -45,7 +45,7 @@ The project has moved into the **Pipeline Implementation** phase.
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 ├── data/               # Raw and processed data
@@ -62,7 +62,7 @@ The project has moved into the **Pipeline Implementation** phase.
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 *   **Ingestion:** Python (Requests, Pandas)
 *   **Modeling:** Facebook Prophet
@@ -71,7 +71,7 @@ The project has moved into the **Pipeline Implementation** phase.
 
 ---
 
-## 🔧 Usage
+##  Usage
 
 Currently, the workflow is executed via Jupyter Notebooks:
 
@@ -81,7 +81,7 @@ Currently, the workflow is executed via Jupyter Notebooks:
 
 ---
 
-## 🎯 Objectives (Future)
+## Objectives (Future)
 
 *   **Model Optimization**: Explore efficiency improvements and alternative algorithms to enhance the current Prophet model.
 *   **Risk Metrics**: Operationalize the **Risk Coverage Ratio** for decision support.
