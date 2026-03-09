@@ -13,7 +13,7 @@ Operational teams need earlier signals for blood shortage risks. The Supply Risk
 
 ---
 
-## 🚀 Current Status
+##  Current Status
 
 The project has moved into the **Pipeline Implementation** phase.
 
