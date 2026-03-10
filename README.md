@@ -37,6 +37,11 @@ The project has moved into the **Pipeline Implementation** phase.
     ![Collision Density Map](docs/images/toronto_hexbin_density.png)
     *Collision Density Hexbin Map revealing structural risk zones.*
 
+*   **Prescriptive Analysis**: Completed prescriptive analysis for Toronto collision data. An interactive dashboard can be found in the `Dashboards` directory.
+    
+    ![Prescriptive Analysis Dashboard](docs/images/Dashboard/Prescriptive_dashboard.png)
+    *Prescriptive Analysis Dashboard for Toronto Collision Data*
+
 ###   Work in Progress
 *   **Automated Retraining Pipeline**: Implementing a quarterly workflow that:
     1.  Fetches fresh Toronto collision data every 3 months.
